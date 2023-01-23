@@ -1,1 +1,11 @@
 @import "~bootstrap";
+$yellow: #F1AF01;
+$red: #840000;
+
+.c_yellow {
+    background-color: $yellow;
+}
+
+.c_red {
+    background-color: $red;
+}

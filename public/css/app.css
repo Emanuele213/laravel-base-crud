@@ -10819,3 +10819,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.c_yellow {
+  background-color: #F1AF01;
+}
+
+.c_red {
+  background-color: #840000;
+}
