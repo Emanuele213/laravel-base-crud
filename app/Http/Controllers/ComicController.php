@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comic;
 use Illuminate\Http\Request;
 
 class ComicController extends Controller
@@ -15,7 +16,8 @@ class ComicController extends Controller
     {
         //Chide la lista dei dati
         //Ritorna la lista
-        $comics = config('comics');
+        //$comics = config('comics');
+        $comics = Comic::all();
         return view('comics.index', //compact($comics) al posto dell'array
         [
             'comics'  =>  $comics,
@@ -40,7 +42,18 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $comic = new Comic;
+        $comic->title         = $data['title'];
+        $comic->thumb         = $data['thumb'];
+        $comic->description   = $data['description'];
+        $comic->price         = $data['price'] ?? false;
+        $comic->series        = $data['series'];
+        $comic->sale_date     = $data['sale_date'];
+        $comic->type          = $data['type'];
+        $comic->save();
+
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
@@ -49,9 +62,11 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Comic $comics)
     {
-        //
+        return view('comics.pageComic', [
+            'comics'  =>  $comics,
+        ]);
     }
 
     /**
@@ -60,7 +75,7 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
         //
     }
@@ -83,7 +98,7 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
         //
     }

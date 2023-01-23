@@ -22,7 +22,7 @@
                 <td class="text-center">{{ $comic['sale_date']}}</td>
                 <td class="text-center">{{ $comic['type']}}</td>
                 <td class="text-center"><img src="{{ $comic['thumb']}}" alt="{{ $comic['title']}}"></td>
-                <td class="text-center"><a href="" class="btn btn-primary">Visualizza</a></td>
+                <td class="text-center"><a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary">Visualizza</a></td>
               </tr>
             @endforeach
           </tbody>
