@@ -15,9 +15,9 @@
               <th class="text-center" scope="col">Sale date</th>
               <th class="text-center" scope="col">Type</th>
               <th class="text-center" scope="col">Images</th>
-              <th class="text-center" scope="col">Visualizza fumetto</th>
-              <th class="text-center" scope="col">Modifica fumetto</th>
-              <th class="text-center" scope="col">Elimina fumetto</th>
+              <th class="text-center" scope="col">View comic</th>
+              <th class="text-center" scope="col">Edit comic</th>
+              <th class="text-center" scope="col">Delete comic</th>
             </tr>
           </thead>
           <tbody class="table-group-divider">
@@ -32,7 +32,7 @@
                 <td class="text-center"><a href="{{ route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary">Visualizza</a></td>
                 <td class="text-center"><a href="{{ route('comics.edit', ['comic' => $comic->id]) }}" class="btn btn-primary">Modifica</a></td>
                 <td class="text-center">
-                    <form action="{{ route('comics.destroy', ['comic' => $comic]) }}" method="POST" onsubmit="return confirm('Vuoi cancellare?')">
+                    <form action="{{ route('comics.destroy', ['comic' => $comic]) }}" method="POST" onsubmit="return confirm('Vuoi cancellare questo elemento?')">
                         @method('DELETE')
                         @csrf
                         <button class="btn btn-danger">Elimina</button>

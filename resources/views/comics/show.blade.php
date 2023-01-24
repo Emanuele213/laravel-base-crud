@@ -2,7 +2,13 @@
 
 @section('content')
 
-<table class="table table-dark">
+    @if (session('success_create'))
+        <div class="alert alert-success">
+            Il post e' stato creato
+        </div>
+    @endif
+
+    <table class="table table-dark">
     <thead>
         <tr>
           <th class="text-center" scope="col">Title</th>

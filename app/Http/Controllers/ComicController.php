@@ -101,7 +101,7 @@ class ComicController extends Controller
         $comic->update();
 
 
-        return redirect()->route('comics.show', ['comic' => $comic]);
+        return redirect()->route('comics.show', ['comic' => $comic])->with('success_create', true);
     }
 
     /**

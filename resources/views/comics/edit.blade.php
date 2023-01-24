@@ -42,10 +42,9 @@
                 <button type="submit" class="btn btn-primary">Modifica</button>
             </div>
         </form>
-        <form action="{{ route('comics.destroy', ['comic' => $comic]) }}" method="POST" onsubmit="return confirm('Vuoi cancellare?')">
+        <form action="{{ route('comics.destroy', ['comic' => $comic]) }}" method="POST" onsubmit="return confirm('Vuoi cancellare questo elemento?')">
             @csrf
             @method('DELETE')
             <button class="btn btn-danger">Elimina</button>
         </form>
-
 @endsection
